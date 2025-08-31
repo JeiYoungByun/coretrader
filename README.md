@@ -10,10 +10,6 @@ erDiagram
     PRODUCTS ||--o{ LIKES : "is liked by"
     PRODUCTS ||--|{ ORDER_ITEMS : "are part of"
     PRODUCTS ||--|{ PRODUCT_IMAGES : "has"
-    CATEGORIES {
-        int id PK
-        varchar name UK
-    }
     PRODUCTS }o--|| CATEGORIES : "belongs to"
     ORDERS ||--|{ ORDER_ITEMS : "contains"
 
