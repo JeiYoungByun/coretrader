@@ -141,3 +141,18 @@ mvn spring-boot:run
 The application will be accessible at:
 👉 http://localhost:8080
 
+## 📖 API Endpoints
+
+| Method | URI              | Description                                |
+|--------|------------------|--------------------------------------------|
+| POST   | /api/user/join   | Registers a new user (for API clients).    |
+| POST   | /api/user/login  | Authenticates a user via AJAX.             |
+| GET    | /api/products    | Retrieves a list of all products.          |
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+
