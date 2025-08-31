@@ -111,5 +111,5 @@ sortPriceDescBtn.addEventListener('click', () => {
 // 5. 초기 페이지 로드 시 실행 (데이터 fetch로 변경)
 document.addEventListener('DOMContentLoaded', () => {
     updateActiveButton(sortLatestBtn);
-    fetchProducts(); // 하드코딩된 데이터 대신 서버에서 데이터를 가져오도록 변경
+    fetchProducts();
 });
