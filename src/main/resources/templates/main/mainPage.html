@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoreTrader - 컴퓨터 부품 중고 거래</title>
+
+    <link rel="stylesheet" th:href="@{/css/mainPage.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <a href="#" class="logo">CoreTrader</a>
+        <div class="search-container">
+            <input type="search" id="search-box" placeholder="부품 이름으로 검색...">
+        </div>
+        <div class="filter-buttons">
+            <button id="sort-latest">최신순</button>
+            <button id="sort-price-asc">가격 낮은순</button>
+            <button id="sort-price-desc">가격 높은순</button>
+        </div>
+
+        <nav class="user-nav">
+            <div class="d-flex" th:if="${session.loginUser}">
+                <span class="welcome-message" th:text="|${session.loginUser.username}님 환영합니다!|"></span>
+                <a href="/user/logout" class="btn btn-outline-danger">로그아웃</a>
+            </div>
+            <div class="d-flex" th:unless="${session.loginUser}">
+                <a href="/user/login" class="btn btn-outline-primary me-2">로그인</a>
+                <a href="/user/signUp" class="btn btn-primary">회원가입</a>
+            </div>
+        </nav>
+
+    </div>
+</header>
+
+<main class="container">
+    <div id="product-list">
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 CoreTrader. All rights reserved.</p>
+    <p>연락처: contact@coretrader.com</p>
+</footer>
+
+<script th:src="@{/js/mainPage.js}"></script>
+</body>
+</html>

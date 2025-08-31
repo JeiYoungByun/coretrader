@@ -1,0 +1,252 @@
+/*
+ * =============================================
+ * CSS (Cascading Style Sheets) - css/mainPage.css
+ * - 타겟: 20-40대 직장인
+ * - 컨셉: 신뢰감과 직관성을 강조한 모던 비즈니스 스타일
+ * =============================================
+*/
+
+/* 1. 기본 및 전역 스타일 */
+:root {
+    /* 브랜드 색상 및 전문적인 UI를 위한 색상 체계 정의 */
+    --bg-color: #F3F4F6;                 /* 밝은 회색 배경 (Light Gray) */
+    --card-bg-color: #FFFFFF;            /* 깨끗한 흰색 카드 배경 */
+    --accent-color: #004F9E;             /* 브랜드 강조색 (Dark Blue) */
+    --font-color-primary: #111827;       /* 주요 텍스트 (가독성 높은 어두운 회색) */
+    --font-color-secondary: #6B7281;     /* 보조 텍스트 (부드러운 회색) */
+    --border-color: #E5E7EB;             /* 은은한 테두리선 */
+    --white-color: #FFFFFF;              /* 흰색 */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--font-color-primary);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1280px; /* 콘텐츠 영역을 조금 더 넓게 설정 */
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* 2. 헤더 스타일 */
+header {
+    padding: 16px 0;
+    background-color: var(--card-bg-color); /* 헤더를 흰색 배경으로 분리 */
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* 은은한 그림자로 입체감 부여 */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--font-color-primary); /* 텍스트 색상 */
+    text-decoration: none;
+
+    /* 아이콘과 텍스트를 정렬하기 위한 flex 설정 */
+    display: inline-flex;
+    align-items: center;
+    gap: 12px; /* 아이콘과 텍스트 사이 간격 */
+}
+
+/* ::before 가상 요소를 사용해 모니터 아이콘을 삽입 */
+.logo::before {
+    content: '';
+    display: block;
+    width: 32px;  /* 아이콘 크기 */
+    height: 32px; /* 아이콘 크기 */
+
+    /* SVG 데이터를 직접 CSS에 삽입하여 아이콘을 표시합니다.
+      색상, 크기 등 수정이 용이하고 이미지가 깨지지 않는 장점이 있습니다.
+    */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23004F9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+#search-box {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1em;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--font-color-primary);
+    transition: all 0.2s ease-in-out;
+}
+
+#search-box:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 79, 158, 0.2); /* 포커스 시 명확한 표시 */
+}
+
+.filter-buttons button, .btn {
+    padding: 10px 16px;
+    font-size: 0.95em;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg-color);
+    color: var(--font-color-secondary);
+    transition: all 0.2s ease-in-out;
+    margin-left: 8px;
+}
+
+.filter-buttons button:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.filter-buttons button.active {
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    border-color: var(--accent-color);
+}
+
+/* 3. 메인 콘텐츠 및 상품 카드 스타일 */
+main {
+    padding: 48px 0;
+}
+
+#product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.product-card {
+    background-color: var(--card-bg-color);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.07);
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.product-info {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info h3 {
+    font-size: 1.25rem;
+    font-weight: 600; /* Semi-bold */
+    margin-bottom: 8px;
+    color: var(--font-color-primary);
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: 700; /* Bold */
+    margin-bottom: 16px;
+    color: var(--accent-color);
+}
+
+.product-specs {
+    font-size: 0.9rem;
+    color: var(--font-color-secondary);
+    border-top: 1px solid var(--border-color);
+    padding-top: 16px;
+}
+
+.product-specs strong {
+    color: var(--font-color-primary);
+    font-weight: 500;
+}
+
+.product-meta {
+    margin-top: auto; /* 카드 하단 정렬 */
+    padding-top: 16px;
+    font-size: 0.875rem;
+    color: var(--font-color-secondary);
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* 4. 로그인/로그아웃 버튼 스타일 */
+.user-nav .d-flex {
+    display: flex;
+    align-items: center;
+}
+
+.welcome-message {
+    margin-right: 16px;
+    color: var(--font-color-secondary);
+}
+
+.me-2 {
+    margin-right: 0.5rem;
+}
+
+.btn {
+    padding: 10px 16px;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--white-color);
+}
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+.btn-outline-primary,
+.btn-outline-danger {
+    background-color: transparent;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--white-color);
+}
+
+/* 5. 푸터 스타일 */
+footer {
+    text-align: center;
+    padding: 48px 24px;
+    margin-top: 32px;
+    color: var(--font-color-secondary);
+    font-size: 0.9rem;
+}

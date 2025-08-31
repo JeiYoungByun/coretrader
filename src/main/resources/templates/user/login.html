@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 - CoreTrader</title>
+
+    <link rel="stylesheet" th:href="@{/css/mainPage.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+<div class="login-container">
+    <div class="login-card">
+        <a href="/main/mainPage" class="logo text-center mb-4">CoreTrader</a>
+        <h2 class="text-center mb-4">로그인</h2>
+
+        <form id="loginForm">
+            <div class="form-group mb-3">
+                <label for="email" class="form-label">이메일 주소</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+            </div>
+            <div class="form-group mb-3">
+                <label for="password" class="form-label">비밀번호</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="d-grid gap-2 mt-4">
+                <button type="submit" class="btn btn-primary btn-lg">로그인</button>
+                <a href="/user/signUp" class="btn btn-link mt-2">회원가입</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script th:src="@{/js/login.js}"></script>
+</body>
+</html>
