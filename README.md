@@ -2,6 +2,7 @@
 
 ## erd diagram
 
+'''mermaid
 erDiagram
     USERS ||--o{ PRODUCTS : "sells"
     USERS ||--|{ ORDERS : "places"
@@ -67,3 +68,4 @@ erDiagram
         bigint user_id FK
         bigint product_id FK
     }
+'''
