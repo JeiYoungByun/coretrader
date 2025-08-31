@@ -5,17 +5,15 @@ import com.example.ecommerceproject.user.entity.User;
 import com.example.ecommerceproject.user.repository.UserRepository;
 import com.example.ecommerceproject.user.service.UserAuthService;
 import jakarta.servlet.http.HttpSession;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class UserAuthServiceImpl implements UserAuthService {
 
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private HttpSession session; // HttpSession 주입
+    private final UserRepository userRepository;
+    private final HttpSession session; // HttpSession 주입
 
     @Override
     public User login(UserLoginRequestDto requestDto) {

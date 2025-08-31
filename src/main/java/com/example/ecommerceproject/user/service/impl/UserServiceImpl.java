@@ -1,21 +1,20 @@
 package com.example.ecommerceproject.user.service.impl;
 
-import com.example.ecommerceproject.user.dto.UserLoginRequestDto;
 import com.example.ecommerceproject.user.dto.UserSignUpRequestDto;
 import com.example.ecommerceproject.user.entity.User;
 import com.example.ecommerceproject.user.repository.UserRepository;
 import com.example.ecommerceproject.user.service.UserService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Override
     @Transactional // 데이터 변경이 있으므로 트랜잭션 처리
