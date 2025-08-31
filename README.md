@@ -2,7 +2,6 @@
 
 ## erd diagram
 
-```mermaid
 erDiagram
     USERS ||--o{ PRODUCTS : "sells"
     USERS ||--|{ ORDERS : "places"
@@ -12,6 +11,7 @@ erDiagram
     PRODUCTS ||--|{ PRODUCT_IMAGES : "has"
     PRODUCTS }o--|| CATEGORIES : "belongs to"
     ORDERS ||--|{ ORDER_ITEMS : "contains"
+
 
     USERS {
         bigint id PK
@@ -67,4 +67,3 @@ erDiagram
         bigint user_id FK
         bigint product_id FK
     }
-```
