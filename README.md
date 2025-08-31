@@ -2,6 +2,7 @@
 
 ## erd diagram
 
+```mermaid
 erDiagram
     USERS ||--o{ PRODUCTS : "sells"
     USERS ||--|{ ORDERS : "places"
@@ -9,6 +10,10 @@ erDiagram
     PRODUCTS ||--o{ LIKES : "is liked by"
     PRODUCTS ||--|{ ORDER_ITEMS : "are part of"
     PRODUCTS ||--|{ PRODUCT_IMAGES : "has"
+    CATEGORIES {
+        int id PK
+        varchar name UK
+    }
     PRODUCTS }o--|| CATEGORIES : "belongs to"
     ORDERS ||--|{ ORDER_ITEMS : "contains"
 
@@ -29,12 +34,11 @@ erDiagram
 
     PRODUCTS {
         bigint id PK
-        bigint seller_id FK "FK to USERS.id"
-        int category_id FK "FK to CATEGORIES.id"
+        bigint seller_id FK
+        int category_id FK
         varchar name
         bigint price
         text description
-        varchar condition "e.g., 'NEW', 'USED'"
         int stock
         datetime created_at
         datetime updated_at
@@ -50,7 +54,7 @@ erDiagram
     ORDERS {
         bigint id PK
         bigint user_id FK
-        varchar status "'PENDING', 'PAID', 'SHIPPED'"
+        varchar status
         bigint total_price
         datetime order_date
     }
@@ -67,3 +71,4 @@ erDiagram
         bigint user_id FK
         bigint product_id FK
     }
+```
