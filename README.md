@@ -1,4 +1,4 @@
-# E-Commerce Project
+# CoreTrader
 
 A personal e-commerce platform for computer parts, built with Spring Boot and Thymeleaf. This project serves as a learning ground for modern backend development practices.
 
@@ -88,3 +88,6 @@ erDiagram
         bigint user_id FK
         bigint product_id FK
     }
+```
+
+
