@@ -29,7 +29,6 @@ erDiagram
     CATEGORIES {
         int id PK
         varchar name UK
-        int parent_id FK "For sub-categories"
     }
 
     PRODUCTS {
