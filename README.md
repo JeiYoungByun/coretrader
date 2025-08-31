@@ -90,57 +90,54 @@ erDiagram
     }
 ```
 
-🚀 Getting Started
+# 🚀 Getting Started
+
 Follow these instructions to get the project up and running on your local machine.
 
-Prerequisites
-JDK 21
+## Prerequisites
+- **JDK 21**
+- **Maven 3.8+**
+- **MySQL Server**
 
-Maven 3.8+
+---
 
-MySQL Server
+## Installation & Setup
 
-Installation & Setup
-Clone the repository
-
-Bash
-
+### 1. Clone the repository
+```bash
 git clone https://github.com/your-username/ecommerce-project.git
 cd ecommerce-project
-Database Setup
+```
 
-Connect to your MySQL server.
+### 2. Database Setup
+
+Connect to your **MySQL server**.
 
 Create the database schema:
 
-SQL
-
+```sql
 CREATE SCHEMA IF NOT EXISTS `ecproject`;
-Run the DDL scripts provided in the project to create all the necessary tables (users, categories, products, etc.).
+```
 
-Configure Application
+Run the DDL scripts provided in the project to create all the necessary tables (users, categories, products, etc). 
 
-Open src/main/resources/application.properties.
+### 3. Configure Application
 
-Update the following properties with your MySQL username and password:
+Open `src/main/resources/application.properties` and update the following properties with your MySQL username and password:
 
-Properties
-
+```properties
 spring.datasource.username=your_mysql_username
 spring.datasource.password=your_mysql_password
-Run the Application
+```
 
-Bash
+### 4. Run the Application
 
+Run the application using Maven:
+
+```bash
 mvn spring-boot:run
-The application will be accessible at http://localhost:8080.
+```
 
-📖 API Endpoints
-Method	URI	Description
-POST	/api/user/join	Registers a new user (for API clients).
-POST	/api/user/login	Authenticates a user via AJAX.
-GET	/api/products	Retrieves a list of all products.
+The application will be accessible at:
+👉 http://localhost:8080
 
-Sheets로 내보내기
-📄 License
-This project is licensed under the MIT License.
