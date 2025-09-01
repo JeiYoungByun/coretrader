@@ -19,9 +19,8 @@
             <input type="search" id="search-box" placeholder="부품 이름으로 검색...">
         </div>
         <div class="filter-buttons">
-            <button id="sort-latest">최신순</button>
-            <button id="sort-price-asc">가격 낮은순</button>
-            <button id="sort-price-desc">가격 높은순</button>
+            <a href="/shoppingCart" class="btn-cart">장바구니</a>
+            <a href="/order" class="btn-order">주문</a>
         </div>
 
         <nav class="user-nav">
@@ -42,6 +41,12 @@
     <div id="product-list">
     </div>
 </main>
+
+<div class="product-sort-bar">
+    <button id="sort-latest" class="active">최신순</button>
+    <button id="sort-price-asc">가격 낮은순</button>
+    <button id="sort-price-desc">가격 높은순</button>
+</div>
 
 <footer>
     <p>&copy; 2025 CoreTrader. All rights reserved.</p>

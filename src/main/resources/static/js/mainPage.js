@@ -14,7 +14,7 @@ const searchBox = document.getElementById('search-box');
 const sortLatestBtn = document.getElementById('sort-latest');
 const sortPriceAscBtn = document.getElementById('sort-price-asc');
 const sortPriceDescBtn = document.getElementById('sort-price-desc');
-const filterButtons = document.querySelectorAll('.filter-buttons button');
+const filterButtons = document.querySelectorAll('.product-sort-bar button');
 
 // 정렬 함수 정의 (기존과 동일)
 let currentSortFunction = (a, b) => new Date(b.createdAt) - new Date(a.createdAt); // date -> createdAt

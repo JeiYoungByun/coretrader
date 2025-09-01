@@ -101,7 +101,22 @@ header {
     box-shadow: 0 0 0 3px rgba(0, 79, 158, 0.2); /* 포커스 시 명확한 표시 */
 }
 
-.filter-buttons button, .btn {
+/* ============================================= */
+/* 1. 버튼들을 담는 컨테이너(상자)의 정렬 (제가 제안한 코드) */
+/* ============================================= */
+.filter-buttons {
+    display: flex; /* Flexbox 레이아웃 적용 */
+    justify-content: flex-end; /* 자식 요소들을 오른쪽 끝으로 정렬 */
+    align-items: center; /* 자식 요소들을 세로 중앙에 정렬 */
+    gap: 1rem; /* 버튼 사이의 간격 */
+}
+
+/* ============================================= */
+/* 2. 컨테이너 안의 각 버튼의 디자인 (보내주신 코드) */
+/* ============================================= */
+.filter-buttons a, /* a 태그도 포함하도록 수정 */
+.filter-buttons button,
+.btn {
     padding: 10px 16px;
     font-size: 0.95em;
     font-weight: 500;
@@ -249,4 +264,81 @@ footer {
     margin-top: 32px;
     color: var(--font-color-secondary);
     font-size: 0.9rem;
+}
+
+/* 장바구니 버튼 스타일 */
+.btn-cart {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* 아이콘과 텍스트 사이 간격 */
+    padding: 8px 16px;
+    border: 1px solid #dee2e6; /* 연한 회색 테두리 */
+    border-radius: 20px; /* 둥근 모서리 */
+    font-weight: 500;
+    color: #495057; /* 기본 텍스트 색상 */
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+/* 장바구니 아이콘 (SVG) */
+.btn-cart::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: currentColor; /* 현재 텍스트 색상을 따라감 */
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='9' cy='21' r='1'%3E%3C/circle%3E%3Ccircle cx='20' cy='21' r='1'%3E%3C/circle%3E%3Cpath d='M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6'%3E%3C/path%3E%3C/svg%3E");
+    mask-size: cover;
+}
+
+/* 마우스를 올렸을 때 스타일 */
+.btn-cart:hover {
+    background-color: #f8f9fa; /* 매우 연한 회색 배경 */
+    border-color: #adb5bd;
+    color: #212529; /* 더 진한 텍스트 색상 */
+}
+
+/* 상품 정렬 바 스타일 */
+.product-sort-bar {
+    display: flex; /* Flexbox 레이아웃 사용 */
+    justify-content: center; /* 자식 요소(버튼)들을 중앙으로 정렬 */
+    gap: 1rem; /* 버튼 사이의 간격 */
+    width: 100%;
+    padding: 2rem 0; /* 위아래 여백 */
+    margin-bottom: 2rem; /* 푸터와의 간격 */
+}
+
+/* 정렬 바 안의 버튼 기본 스타일 */
+.product-sort-bar button {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-weight: 500;
+    color: #495057;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+/* 마우스를 올렸을 때와 활성화 상태일 때의 스타일 */
+.product-sort-bar button:hover,
+.product-sort-bar button.active {
+    background-color: #0d6efd; /* Bootstrap Primary Color */
+    color: #ffffff;
+    border-color: #0d6efd;
+    transform: translateY(-2px); /* 살짝 위로 이동하는 효과 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-order {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* 아이콘과 텍스트 사이 간격 */
+    padding: 8px 16px;
+    border: 1px solid #dee2e6; /* 연한 회색 테두리 */
+    border-radius: 20px; /* 둥근 모서리 */
+    font-weight: 500;
+    color: #495057; /* 기본 텍스트 색상 */
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
 }
